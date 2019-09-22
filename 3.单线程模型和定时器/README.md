@@ -39,4 +39,4 @@ setTimeout(function(){
 
 ---
 ### 代码题
-https://github.com/PangYunsheng8/mfs-homework/blob/master/45.%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9A%E6%97%B6%E5%99%A8/homework45.html
+https://github.com/PangYunsheng8/mfs-senior/blob/master/3.%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AE%9A%E6%97%B6%E5%99%A8/homework3.html
