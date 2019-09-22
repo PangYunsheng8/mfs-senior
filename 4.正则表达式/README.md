@@ -53,7 +53,7 @@
 2)首字符为字母或者下划线
 3)应该包括小写字母，大写字母，数字，下划线中的至少3个
 4)不能包括其他特殊字符
-```
+```javascript
 function checkPassword(str){
     var reg = /^(?![a-zA-Z]+$)(?![a-z\d]+$)(?![a-z_]+$)(?![A-Z\d]+$)(?![A-Z_]+$)(?![\d_]+$)[a-zA-Z_][a-zA-Z0-9_]{5,15}$/
     if reg.test(str){
@@ -65,7 +65,7 @@ function checkPassword(str){
 }
 ```
 ##### 6. 请使用正则表达式实现jQuery中的addClass和removeClass
-```
+```javascript
 def addClass(str,clazz){
    var reg = new RegExp("\b" + clazz + "\b");
    if (reg.test(str)){
@@ -86,4 +86,4 @@ def removeClass(str,clazz){
 }
 ```
 ##### 7. 已知获取了部分html（截取自码蜂社官网，为minify以后的代码），完成函数getInfo(html)
-代码：https://github.com/PangYunsheng8/mfs-homework/blob/master/44.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/homework44_7.html
+代码：https://github.com/PangYunsheng8/mfs-senior/blob/master/4.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/homework4_7.html
