@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>跨域</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  </head>
+  <body>
+    <div>
+      用户名:
+      <input type="text" id="username" name="username"/>
+    </div>
+    <div>
+      <input type="button" id="signup" value="注册"/>
+    </div>
+
+    <script>
+      $("#signup").click(function () {
+        console.log($("#userName").val());
+        $.ajax({
+          type: "POST",
+          url: "http://www.b.com:3000/signup",
+          data: {
+            username: $("#username").val()
+          },
+          success: function(data){
+            console.log(data)
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
