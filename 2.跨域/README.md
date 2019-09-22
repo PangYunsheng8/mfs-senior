@@ -39,5 +39,15 @@ document.domain = "kuayu.html"
 
 ---
 ### 代码题
-代码地址：
 主要修改的是views/index.ejs和routes/index.js
+其中views/index.ejs地址为：https://github.com/PangYunsheng8/mfs-senior/blob/master/2.%E8%B7%A8%E5%9F%9F/cross/views/index.ejs
+routes/index.js地址为：
+https://github.com/PangYunsheng8/mfs-senior/blob/master/2.%E8%B7%A8%E5%9F%9F/cross/routes/index.js
+
+解释：1)代码调试完毕后，在浏览器中以http://www.a.com:3000/向www.b.com域发请求，请求内容为：434497112@qq.com
+![alt](./imgs/CORS3.png)
+![alt](./imgs/CORS1.png)
+2)再在浏览器中以http://www.a.com:3000/向www.b.com域发请求，请求内容为：mafengshe
+![alt](./imgs/CORS2.png)
+
+
