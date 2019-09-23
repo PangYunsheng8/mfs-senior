@@ -41,4 +41,4 @@ book.__proto__ = Book.prototype;
 ![alt](./prototype.png)
 ---
 ### 代码题
-代码：https://github.com/PangYunsheng8/mfs-homework/blob/master/46.%E5%8E%9F%E5%9E%8B%E9%93%BE/homework46.html
+代码：https://github.com/PangYunsheng8/mfs-senior/blob/master/6.%E5%8E%9F%E5%9E%8B%E9%93%BE/homework.html
