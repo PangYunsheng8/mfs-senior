@@ -74,23 +74,27 @@
             var nodeH = $node.height();
             return nodeOT <= windowH + scrollTop && nodeOT + nodeH >= scrollTop
         }
-        var timer;
-        window.onscroll = function () {
-            console.log("onscroll")
+        function LazyImg(selector) {
+            var timer;
+            window.onscroll = function () {
+                console.log("onscroll")
 
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                console.log('exec')
-                var img = $('img');
-                img.each(function () {
-                    var ele = $(this)
-                    if (isShow(ele)) {
-                        console.log("load img")
-                        ele.attr("src", ele.data("src"));
-                    }
-                })
-            }, 50);
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    console.log('exec')
+                    var img = selector;
+                    img.each(function () {
+                        var ele = $(this)
+                        if (isShow(ele)) {
+                            console.log("load img")
+                            ele.attr("src", ele.data("src"));
+                        }
+                    })
+                }, 50);
+            }
         }
+
+        new LazyImg($("img"))
     </script>
 </body>
 
