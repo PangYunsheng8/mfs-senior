@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name){
+            this.name = name;
+        }
+
+        Animal.prototype.eat = function(){
+            console.log(this.name + " can eat");
+        }
+        Animal.prototype.sleep = function(){
+            console.log(this.name + " can sleep");
+        }
+
+        function Dog(name){
+            Animal.call(this, name);
+            this.name = name;
+        }
+        function Cat(name){
+            Animal.call(this, name);
+            this.name = name;
+        }
+        function Human(name){
+            Animal.call(this, name);
+            this.name = name;
+        }
+
+        Dog.prototype = Object.create(Animal.prototype)
+        Cat.prototype = Object.create(Animal.prototype)
+        Human.prototype = Object.create(Animal.prototype)
+
+        Dog.prototype.bark = function(){
+            console.log(this.name + " can bark");
+        }
+        Cat.prototype.bark = function(){
+            console.log(this.name + " can bark");
+        }
+        Human.prototype.speak = function(){
+            console.log(this.name + " can speak")
+        }
+
+        var dog = new Dog("dog");
+        var cat = new Cat("cat");
+        var human = new Human("human");
+
+        dog.bark()
+        dog.eat()
+        dog.sleep()
+
+        cat.bark()
+        cat.eat()
+        cat.sleep()
+
+        human.speak()
+        human.eat()
+        human.sleep()
+    </script>
+</body>
+
+</html>
