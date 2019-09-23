@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lazy img</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            height: 1500px;
+            width: 100%;
+            background-color: gray;
+        }
+
+        .container {
+            height: 500px;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            height: 500px;
+            width: 100%;
+            background-color: gray;
+        }
+
+        img {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i1/112441482/O1CN01bpfP5v1MonT1u9cEi_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i1/124270891/TB2RTAbfsCNZ1JjSZFHXXb.kVXa_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i2/112441482/O1CN01Uws1BN1MonRyPsqPC_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i2/131428826/O1CN01qF4XB32F4MEhE5ht6_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i4/121011419/O1CN01LY31is1MLwX1FAvbd_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i1/32050341/O1CN01u2tvrE1EODazF1sjM_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i1/123565297/O1CN01d2AdP51p04UFibtwt_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i2/15883149/TB28_37nByWBuNkSmFPXXXguVXa_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i1/430940124/O1CN010drTRe1Cmpeo6LFEM_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+        <img data-src="https://gma.alicdn.com/bao/uploaded/i2/108232033/O1CN01efAvJY1Qt9l71fSYZ_!!0-saturn_solar.jpg_200x200.jpg_.webp"
+        />
+    </div>
+    <div class="footer"></div>
+
+    <script>
+        function isShow($node) {
+            var windowH = $(window).height();
+            var scrollTop = $(window).scrollTop();
+            var nodeOT = $node.offset().top;
+            var nodeH = $node.height();
+            return nodeOT <= windowH + scrollTop && nodeOT + nodeH >= scrollTop
+        }
+        var timer;
+        window.onscroll = function () {
+            console.log("onscroll")
+
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                console.log('exec')
+                var img = $('img');
+                img.each(function () {
+                    var ele = $(this)
+                    if (isShow(ele)) {
+                        console.log("load img")
+                        ele.attr("src", ele.data("src"));
+                    }
+                })
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>
