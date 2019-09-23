@@ -42,7 +42,7 @@ window.onscroll = function () {
 
 ---
 ### 代码题
-代码题1.预览：https://pangyunsheng8.github.io/mfs-senior/8.%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E7%80%91%E5%B8%83%E6%B5%81lazy.html
+代码题1.
 代码：https://github.com/PangYunsheng8/mfs-senior/blob/master/8.%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E7%80%91%E5%B8%83%E6%B5%81/lazy_img.html
 代码题2：
 代码：
