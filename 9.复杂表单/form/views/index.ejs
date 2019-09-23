@@ -1,67 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <style>
-      .valid{
-        display: none;
-      }
-      .valid.show{
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <form action="/signup">
-      <div>
-        username: <input type="text" id="username" oninput="usernameChange()" pattern="^[a-zA-Z]\w{5,17}$" required/>
-        <div class="valid">用户名已经存在</div>
-      </div>
-      <div>
-        password: <input type="password" id="password" oninput="passwordInput()" pattern="\w{6,18}" required/>
-      </div>
-      <div>
-        password-repeat: <input type="password" id="password-repeat" oninput="passwordRepeatInput()" pattern="\w{6,18}" required/>
-      </div>
-      <input type="submit" id="submit"/>
-    </form>
 
-    <script>
-        //验证两次密码输入是否相同
-        var password;
-        function passwordInput(){
-          password = $('#password')[0].value;
-        }
-        function passwordRepeatInput(){
-          var passwordRepeat = $('#password-repeat')[0];
-          if (password != passwordRepeat.value){
-            passwordRepeat.setCustomValidity("两次密码输入不一致");
-          }else{
-            passwordRepeat.setCustomValidity("");
-          }
-        }
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <style>
+    .valid {
+      display: none;
+    }
 
-        //验证用户名是否重复
-        var userName = $('#username')[0];
-        function usernameChange(){
-          $.ajax({
-            url:"/usernameExist",
-            method:"post",
-            data:{
-              username: userName.value
-            },
-            success:function(data){
-              console.log(data);
-              if (data.exist){
-                $(".valid").addClass("show");
-              }else{
-                $(".valid").removeClass("show");
-              }
+    .valid.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/signup">
+    <div>
+      username:
+      <input type="text" id="username" oninput="usernameChange()" pattern="^[a-zA-Z]\w{5,17}$" required/>
+      <div class="valid">用户名已经存在</div>
+    </div>
+    <div>
+      password:
+      <input type="password" id="password" oninput="passwordInput()" pattern="\w{6,18}" required/>
+    </div>
+    <div>
+      password-repeat:
+      <input type="password" id="password-repeat" oninput="passwordRepeatInput()" pattern="\w{6,18}" required/>
+    </div>
+    <input type="submit" id="submit" />
+  </form>
+
+  <script>
+    //验证两次密码输入是否相同
+    var password;
+    function passwordInput() {
+      password = $('#password')[0].value;
+    }
+    function passwordRepeatInput() {
+      var passwordRepeat = $('#password-repeat')[0];
+      if (password != passwordRepeat.value) {
+        passwordRepeat.setCustomValidity("两次密码输入不一致");
+      } else {
+        passwordRepeat.setCustomValidity("");
+      }
+    }
+
+    //验证用户名是否重复
+    var userName = $('#username')[0];
+    var timer;
+    function usernameChange() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        $.ajax({
+          url: "/usernameExist",
+          method: "post",
+          data: {
+            username: userName.value
+          },
+          success: function (data) {
+            console.log(data);
+            if (data.exist) {
+              $(".valid").addClass("show");
+            } else {
+              $(".valid").removeClass("show");
             }
-          })
-        }
-    </script>
-  </body>
+          }
+        })
+      }, 1000)
+    }
+  </script>
+</body>
+
 </html>
