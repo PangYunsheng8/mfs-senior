@@ -56,7 +56,6 @@ function main(){
 main();
 ```
 ##### 4. 如下代码输出是什么？为什么？
-输出为：20，20，10，10
 ```javascript
 var a = 10;
 var foo = {
@@ -74,6 +73,7 @@ console.log(
     (foo.bar, foo.bar)()   
 );
 ```
+输出为：20，20，10，10。本题考察的是动态绑定的this指向，动态绑定的this根据实际的执行情况改变其指向，前两句this指向的是foo域，后两个this指向的是全局域。
 ##### 5. 如下代码输出是什么？为什么？请写出js解释器实际执行的等效代码
 输出依次为：undefined，20，undefined，30，20
 ```javascript
