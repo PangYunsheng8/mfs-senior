@@ -19,5 +19,7 @@ required属性规定必须在提交之前填写输入域（不能为空）。它
 
 ---
 ### 代码题
-代码题1：
-代码题2：
+代码题1：前端：https://github.com/PangYunsheng8/mfs-senior/blob/master/9.%E5%A4%8D%E6%9D%82%E8%A1%A8%E5%8D%95/display/cities_frontend.html
+后端：https://github.com/PangYunsheng8/mfs-senior/blob/master/9.%E5%A4%8D%E6%9D%82%E8%A1%A8%E5%8D%95/display/cities_backend.js
+代码题2：前端：https://github.com/PangYunsheng8/mfs-senior/blob/master/9.%E5%A4%8D%E6%9D%82%E8%A1%A8%E5%8D%95/display/form_frontend.html
+后端：https://github.com/PangYunsheng8/mfs-senior/blob/master/9.%E5%A4%8D%E6%9D%82%E8%A1%A8%E5%8D%95/display/form_backend.js

@@ -37,7 +37,7 @@ let run = fn =>{
     function next (err, data){
         let rs = it.next(data)
         if (rs.done) return
-        re.value(next)
+        rs.value(next)
     }
     next()
 }
