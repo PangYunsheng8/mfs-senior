@@ -40,3 +40,95 @@ timeout(2000).then(data=>{
     console.log(data)
 })
 ```
+
+---
+### 代码题
+##### 1. 请使用 Promise 重构之前作业：新闻瀑布流 中的 图片加载 和 加载更多 部分，比较 Promise 写法与之前的写法的区别
+由于数据丢失，此题暂时跳过
+##### 2. 请自行封装 ajaxGet(url) 函数，其返回值为 Promise ，其中 data 为获取的数据（内部使用 XMLHttpRequest）
+```javascript
+let ajaxGet = (url) => {
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+                resolve(data);
+            } else {
+                let err = {"errcode": xhr.status, "msg":"请求接口失败!"}
+                reject(err)
+            }
+        }
+        xhr.open('get', url, true);
+        xhr.send();
+    })
+}
+
+ajaxGet("http://learning-api.mafengshe.com/news?page=1&pageSize=30")
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+```
+##### 3. 请利用自己实现的 ajaxGet(url) 函数，实现串行（一个接一个的）发送10个请求，来获取下面 api 的前10页数据
+```javascript
+var [page, pageSize] = [1, 30];
+var url = "http://learning-api.mafengshe.com/news?page=" + page + "&pageSize=" pageSize;
+
+ajaxGet(url).then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.then(data => {
+    console.log(data));
+    page++;
+    return ajaxGet(url);
+}.catch(err =>{
+    console.log(err)
+})
+```
+##### 4. 请利用自己实现的 ajaxGet(url) 函数，实现并行（同时）发送10个请求，来获取下面 api 的前10页数据
+```javascript
+var [page, pageSize] = [1, 30];
+var url = "http://learning-api.mafengshe.com/news?page=" + page + "&pageSize=" pageSize;
+var ajaxArray = []
+
+for (;page<=10;page++){
+    ajaxArray.push(ajaxGet(url));
+}
+Promise.all(ajaxArray).then(data=>{
+    console.log(data)
+}).catch(err=>{
+    console.log(err)
+})
+```
