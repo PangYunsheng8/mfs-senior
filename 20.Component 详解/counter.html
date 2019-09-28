@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script>
+        Vue.component("parent", {
+            data:function(){
+                return{count: 0}
+            },
+            methods:{
+                countPlusOne(){
+                    this.count++
+                }
+            },
+            template:`<div class="parent">
+                <p>{{count}}</p>
+                <child @increment="countPlusOne"></child>
+                </div>
+            `
+        })
+        Vue.component("child", {
+            props:{
+                message: {
+                    default(){
+                        return 0
+                    }
+                }
+            },
+            data: function(){
+                return {
+                    childCount1: 0,
+                    childCount2: 0
+                }
+            },
+            methods:{
+                childCountPlusOne1(){
+                    this.childCount1++
+                    this.$emit("increment")
+                },
+                childCountPlusOne2(){
+                    this.childCount2++
+                    this.$emit("increment")
+                }
+            },
+            template:`
+            <div class="child">
+                <button @click="childCountPlusOne1">{{childCount1}}</button>
+                <button @click="childCountPlusOne2">{{childCount2}}</button>
+            </div>
+            `
+        })
+        var app = new Vue({
+            el: "#app",
+        })
+    </script>
+</body>
+</html>

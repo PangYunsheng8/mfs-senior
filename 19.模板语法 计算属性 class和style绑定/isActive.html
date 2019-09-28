@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue share data</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <item></item>
+    </div>
+    <script>
+        Vue.component("item",{
+            data: function(){
+                return {isActive: true}
+            },
+            template:`
+                <div :class="isAct">aaaaa</div>
+            `
+            ,
+            computed:{
+                isAct(){
+                    let active;
+                    if (this.isActive) active = true
+                    else active = false
+                    console.log(this.isActive)
+                    return {active: active}
+                }
+            }
+        })
+        var app = new Vue({
+            el: "#app"
+        })
+    </script>    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue slot</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <container>
+            <div slot="content1">content1</div>
+            <div slot="content2">content2</div>
+        </container>
+    </div>
+    <script>
+        Vue.component("container",{
+            template:`
+            <div class="main">
+                <header>header</header>
+                <slot name="content1"></slot>
+                <hr>
+                <slot name="content2"></slot>
+                <footer>footer</footer>
+            </div>
+            `
+        })
+        var app = new Vue({
+            el: "#app"
+        })
+    </script>    
+</body>
+</html>
