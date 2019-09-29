@@ -1,0 +1,1 @@
+表单的控件使用双向绑定v-bind没有问题(比如input textarea)，但是自定义组件之间不用v-bind，用单向传输

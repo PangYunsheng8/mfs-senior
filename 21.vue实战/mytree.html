@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tree</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        /* ul{
+            position: relative;
+        } */
+
+        li {
+            position: absolute;
+            /* left: 150px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <li>My Tree [+]
+            <ul>
+                <li>aaa</li>
+            </ul>
+        </li>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                // data
+                treeData = {
+                    name: 'My Tree',
+                    children: [
+                        { name: 'hello' },
+                        { name: 'wat' },
+                        {
+                            name: 'child folder',
+                            children: [
+                                {
+                                    name: 'child folder',
+                                    children: [
+                                        { name: 'hello' },
+                                        { name: 'wat' }
+                                    ]
+                                },
+                                { name: 'hello' },
+                                { name: 'wat' },
+                                {
+                                    name: 'child folder',
+                                    children: [
+                                        { name: 'hello' },
+                                        { name: 'wat' }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+
+</html>
