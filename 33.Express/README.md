@@ -34,3 +34,7 @@ module.exports = router;
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 ```
+
+---
+### 代码题：
+https://github.com/PangYunsheng8/mfs-senior/blob/master/33.Express/Express-new/restful.js

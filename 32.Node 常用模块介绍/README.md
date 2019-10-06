@@ -36,3 +36,11 @@ readStream.on("close",(data)=>{
 ```
 ##### 4. Node.js 中如何获取环境变量？
 process.env
+
+---
+### 代码题
+1.https://github.com/PangYunsheng8/mfs-senior/blob/master/32.Node%20%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/readFile.js
+2.client:https://github.com/PangYunsheng8/mfs-senior/blob/master/32.Node%20%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/form-upload/client.html
+server:https://github.com/PangYunsheng8/mfs-senior/blob/master/32.Node%20%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/form-upload/server.js
+3.client:https://github.com/PangYunsheng8/mfs-senior/blob/master/32.Node%20%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/server-client/http-client.js
+server:https://github.com/PangYunsheng8/mfs-senior/blob/master/32.Node%20%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/server-client/http-server.js
