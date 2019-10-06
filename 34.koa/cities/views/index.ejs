@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    select {
+      width: 100px;
+      height: 30px;
+      margin: 2px;
+      border: 1.5px solid gray;
+      border-radius: 5%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <select id="region" onchange="getStateData()"></select>
+    </div>
+    <div>
+      <select id="state" onchange="getCityData()"></select>
+    </div>
+    <div>
+      <select id="city"></select>
+    </div>
+  </div>
+
+  <script>
+    var region = $('#region')[0];
+    var state = $('#state')[0];
+    var city = $('#city')[0];
+    
+    //直接get省数据
+    function getRegionData() {
+      $.ajax({
+        url: "/region",
+        method: "get",
+        success: function (data) {
+          var regionData = data.regionData;
+          for (var i in regionData){
+            var option = document.createElement("option");
+            option.setAttribute("value", regionData[i]);
+            option.setAttribute("label", regionData[i]);
+            region.appendChild(option);
+          }
+        }
+      })
+    }
+
+    function getStateData(){
+      $.ajax({
+        url: "/state",
+        method: "post",
+        data: {
+          regionName: region.value
+        },
+        success: function (data) {
+          var stateData = data.stateData;
+          console.log(stateData)
+          
+          //删除已有的市
+          while (state.hasChildNodes()){
+            state.removeChild(state.lastChild);
+          }
+          
+          //添加新的市
+          for (var i in stateData){
+            var option = document.createElement("option");
+            option.setAttribute("value", stateData[i]);
+            option.setAttribute("label", stateData[i]);
+            state.appendChild(option);
+          }
+        }
+      })
+    }
+
+    function getCityData(){
+      $.ajax({
+        url: "/city",
+        method: "post",
+        data: {
+          regionName: region.value,
+          stateName: state.value
+        },
+        success: function (data) {
+          var cityData = data.cityData;
+          
+          //删除已有的区县
+          while (city.hasChildNodes()){
+            city.removeChild(city.lastChild);
+          }
+          
+          //添加新的区县
+          for (var i in cityData){
+            var option = document.createElement("option");
+            option.setAttribute("value", cityData[i]);
+            option.setAttribute("label", cityData[i]);
+            city.appendChild(option);
+          }
+        }
+      })
+    }
+
+    getRegionData()
+  </script>
+</body>
+
+</html>

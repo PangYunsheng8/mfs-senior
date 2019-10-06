@@ -1,0 +1,18 @@
+------WebKitFormBoundarybEeoOU2butgKyAE3
+Content-Disposition: form-data; name="name"
+
+1
+------WebKitFormBoundarybEeoOU2butgKyAE3
+Content-Disposition: form-data; name="age"
+
+2
+------WebKitFormBoundarybEeoOU2butgKyAE3
+Content-Disposition: form-data; name="sex"
+
+M
+------WebKitFormBoundarybEeoOU2butgKyAE3
+Content-Disposition: form-data; name="fileupload"; filename="node.txt"
+Content-Type: text/plain
+
+node111
+------WebKitFormBoundarybEeoOU2butgKyAE3--
